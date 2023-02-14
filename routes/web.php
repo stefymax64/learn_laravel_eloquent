@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+class User{
+    public $name;
+    public $password;
+
+    public function __construct($name, $password)
+    {
+        $this->name = $name;
+        $this->password = $password;
+    }
+    
+}
+
+
+// Route::get('/', function () {
+//     return [1,2,3];
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    $users = new User("Clém", "adrar");
+    return [$users];
 });
+
+Route::get('/greeting', function(){
+    return 'Hello world !';
+});
+
+Route::get('/user', function(){
+    return view('/welcome');
+});
+
+
